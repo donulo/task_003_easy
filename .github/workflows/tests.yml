@@ -17,14 +17,14 @@ jobs:
         
     - name: Compile ip_check
       run: |
-        gcc -Wall -Werror -Wextra -stc=c11 -c ./src/ip_lib.c -o ./src/ip_lib.o
-        gcc -Wall -Werror -Wextra -stc=c11 ./src/ip_check.c ./src/ip_lib.o -o ./src/ip_check
+        gcc -Wall -Werror -Wextra -std=c11 -c ./src/ip_lib.c -o ./src/ip_lib.o
+        gcc -Wall -Werror -Wextra -std=c11 ./src/ip_check.c ./src/ip_lib.o -o ./src/ip_check
     
     - name: Compile mask_check if exists
       if: ${{ hashFiles('./src/mask_check.c') != '' }}
       run: |
-        gcc -Wall -Werror -Wextra -stc=c11 -c ./src/ip_lib.c -o ./src/ip_lib.o
-        gcc -Wall -Werror -Wextra -stc=c11 ./src/mask_check.c ./src/ip_lib.o -o ./src/mask_check
+        gcc -Wall -Werror -Wextra -std=c11 -c ./src/ip_lib.c -o ./src/ip_lib.o
+        gcc -Wall -Werror -Wextra -std=c11 ./src/mask_check.c ./src/ip_lib.o -o ./src/mask_check
         
     - name: Build project using make
       run: |
