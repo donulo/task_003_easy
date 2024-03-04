@@ -4,7 +4,7 @@ char* getAddress() {
     char* string = NULL;
     int length = 0;
     char curr;
-    while ((curr = getchar()) != '\n' && curr != EOF) {
+    while ((curr = getchar()) != '\n' && (int)(curr) != EOF) {
         void* temp = realloc(string, ++length * sizeof(char));
         if (temp != NULL) {
             string = temp;
